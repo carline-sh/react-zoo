@@ -1,34 +1,55 @@
-import { useState } from 'react'
+import { useState } from 'react';
+
+  const animals = [{name: 'Koala', src: 'koala.jpg'}, {name: 'Otter', src: 'ottor.jpg'}, {name:'Panda', src: 'panda.webp'}, {name: 'Red panda', src: 'rodepanda.jpg'}, {name:'Meerkat', src: 'stokstaart.webp'}];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [index, setIndex] = useState(0);
+
+  function volgende() {
+    let nextIndex = index + 1;
+    if (nextIndex > animals.length - 1) {
+      nextIndex = 0;
+    }
+    setIndex(nextIndex);
+  }
+
+  function vorige() {
+    let nextIndex = index - 1;
+    if (nextIndex < 0) {
+      nextIndex = animals.length - 1;
+    }
+    setIndex(nextIndex);
+  }
+
 
   return (
     <>
-      <section id="center" className='bg-pink-400'>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
+      <div className="text-center">
+        <h1 className="font-bold text-xl p-10">Zoo</h1>
+        <div className="px-10 flex items-center flex-col">
+          <img src={"public/" + animals[index].src} alt={animals[index].name} className="w-100 mb-4" />
         </div>
+      </div>
+        <div className="mx-auto max-w-60">
+        <span>you are now looking at {animals[index].name}</span>
+      </div>
+      <div className='mx-auto max-w-40'>
         <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+        type="button"
+        className="counter"
+        onClick={vorige}
+      >
+        vorige
+      </button>
+      <span>{index}</span>
+      <button
+        type="button"
+        className="counter"
+        onClick={volgende}
+      >
+        volgende
+      </button>
+      </div>
     </>
   )
 }
