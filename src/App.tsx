@@ -5,7 +5,7 @@ function App() {
 
   return (
     <>
-      <section id="center">
+      <section id="center" className='bg-pink-400'>
         <div>
           <h1>Get started</h1>
           <p>
