@@ -1,6 +1,12 @@
 import { useState } from 'react';
 
-const animals = [{ name: 'Koala', src: 'koala.jpg' }, { name: 'Otter', src: 'ottor.jpg' }, { name: 'Panda', src: 'panda.webp' }, { name: 'Red panda', src: 'rodepanda.jpg' }, { name: 'Meerkat', src: 'stokstaart.webp' }];
+const animals = [
+{ name: 'Koala', src: 'koala.jpg', wikipediaLink: 'https://en.wikipedia.org/wiki/Koala' },
+{ name: 'Otter', src: 'ottor.jpg', wikipediaLink: 'https://en.wikipedia.org/wiki/Otter' },
+{ name: 'Panda', src: 'panda.webp', wikipediaLink: 'https://en.wikipedia.org/wiki/Giant_panda' },
+{ name: 'Red panda', src: 'rodepanda.jpg', wikipediaLink: 'https://en.wikipedia.org/wiki/Red_panda' },
+{ name: 'Meerkat', src: 'stokstaart.webp', wikipediaLink: 'https://en.wikipedia.org/wiki/Meerkat' }
+];
 
 function App() {
   const [index, setIndex] = useState(0);
@@ -31,7 +37,8 @@ function App() {
         </div>
       </div>
       <div className="mx-auto">
-        <span className="pb-6">You are now looking at {animals[index].name}</span>
+        <span className="pb-6">You are now looking at </span>
+        <a className="underline" target="_blank" href={animals[index].wikipediaLink}>{animals[index].name}</a>
       </div>
       <div className='mx-auto flex gap-4 items-center pt-4'>
         <button
