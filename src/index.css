@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+.btn {
+    @apply bg-blue-400 px-2 rounded-md hover:bg-blue-500 py-1 cursor-pointer;
+}
