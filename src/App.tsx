@@ -39,15 +39,15 @@ function App() {
         className="counter"
         onClick={vorige}
       >
-        vorige
+        vorige 
       </button>
-      <span>{index}</span>
+
       <button
         type="button"
         className="counter"
         onClick={volgende}
       >
-        volgende
+         volgende
       </button>
       </div>
     </>
